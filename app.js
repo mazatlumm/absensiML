@@ -2,20 +2,20 @@ const express = require("express");
 const cors = require('cors');
 const mysql = require("mysql");
 const bodyParser = require('body-parser')
-const multer = require('multer') // v1.0.5
-const upload = multer() // for parsing multipart/form-data
+const multer = require('multer')
+const upload = multer() 
 
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json()) // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json()) 
+app.use(bodyParser.urlencoded({ extended: true })) 
 
 const db = mysql.createConnection({
     host:"localhost",
-    user:"root",
-    password:"root",
-    port:8889,
+    user:"root", // sesuaikan dengan user database
+    password:"root", //sesuaikan dengan password database
+    port:8889, //sesuaikan dengan port mysql
     database:"absensi"
 })
 
@@ -66,5 +66,5 @@ app.post("/post", (req, res) => {
 })
 
 app.listen("3333", () => {
-    console.log('Server running on port 3333');
+    console.log('Server running on port 3333'); // gunakan port yang tidak digunakan
 })
